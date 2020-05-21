@@ -1,0 +1,16 @@
+[package]
+name = "sway-time-tracker"
+version = "0.1.0"
+authors = ["Nirmoy Das <nirmoy.das@amd.com>"]
+edition = "2018"
+
+[dependencies.async-std]
+version = "1.0.0"
+default-features = true
+features = ["std"]
+
+[dependencies.swayipc]
+features = ["async"]
+
+[dependencies.command-macros]
+version = "0.2.7"
