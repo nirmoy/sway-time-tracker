@@ -5,7 +5,7 @@ use std::process::Command;
 use std::process;
 
 
-use std::{error::Error, thread};
+use std::{thread};
 use signal_hook::{iterator::Signals, SIGTERM, SIGINT};
 
 
@@ -27,7 +27,8 @@ async fn main() -> Fallible<()> {
 
 
     let mut events = Connection::new().await?.subscribe(&subs).await?;
-    while let event = events.next().await {
+    loop {
+        let event = events.next().await;
         if let Event::Window(window) = event.unwrap() {
              let app_id = window.container.app_id;
              let change = window.change;
@@ -46,5 +47,4 @@ async fn main() -> Fallible<()> {
              }
         }
     }
-    unreachable!();
 }
