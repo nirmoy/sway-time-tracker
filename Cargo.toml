@@ -14,3 +14,6 @@ features = ["async"]
 
 [dependencies.command-macros]
 version = "0.2.7"
+
+[dependencies.signal-hook]
+version = "0.1.15"
